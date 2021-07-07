@@ -1,0 +1,13 @@
+@import "styles/colors.scss";
+
+body {
+	color: $color-5-9;
+}
+
+.MuiAppBar-colorPrimary {
+	background-color: $color-2-5;
+}
+.toolBar {
+	background-color: $color-2-5;
+	color: $color-5-9;
+}

@@ -1,0 +1,13 @@
+@import "styles/colors.scss";
+
+.invitation-action-grid {
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	column-gap: 2rem;
+}
+
+.add_form {
+	display: grid;
+	grid-template-columns: 300px 300px 150px;
+	row-gap: 0.5rem;
+}

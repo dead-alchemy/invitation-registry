@@ -1,0 +1,16 @@
+@import "styles/colors.scss";
+
+.countdown {
+	//-height: 5rem;
+	height: 5rem;
+}
+
+.navlink {
+	text-decoration: none;
+	color: $color-1-8;
+}
+
+.selected {
+	text-decoration: none;
+	color: $color-3-7;
+}
