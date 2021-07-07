@@ -2,12 +2,7 @@ import React, {useState, useEffect} from "react";
 import {TextField, Checkbox, FormControlLabel} from "@material-ui/core";
 
 function AddForm(props) {
-	const [addInd, setAddInd] = useState({...props.addInd});
-
-	useEffect(() => {
-		setAddInd(props.addInd);
-	}, [props.addInd]);
-
+	useEffect(() => {});
 	const addressInputs = (
 		<React.Fragment>
 			<TextField
@@ -73,7 +68,7 @@ function AddForm(props) {
 				control={
 					<Checkbox
 						id="address-ind"
-						value={addInd}
+						value={props.addInd}
 						onClick={() =>
 							props.handle_formFieldUpdate(
 								"addressInd",
@@ -83,7 +78,7 @@ function AddForm(props) {
 					/>
 				}
 			></FormControlLabel>
-			{addInd === true && addressInputs}
+			{props.addInd === true && addressInputs}
 		</form>
 	);
 }

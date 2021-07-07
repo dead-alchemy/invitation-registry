@@ -5,11 +5,14 @@ import {
 	DialogContent,
 	DialogTitle,
 	Button,
+	TextField,
+	Checkbox,
+	FormControlLabel,
 } from "@material-ui/core";
 
 import AddForm from "./add_form";
 
-const AddGuest = (props) => {
+function AddGuest(props) {
 	let [formData, updateFormData] = useState({
 		firstName: "",
 		lastName: "",
@@ -20,14 +23,13 @@ const AddGuest = (props) => {
 		zip: "",
 	});
 
-	let formFieldUpdate = (field, value) => {
-		let updateForm = formData;
-
-		updateForm[field] = value;
-		console.log(updateForm[field]);
-		// useEffect(() => {
-		// 	updateFormData(updateForm);
-		// }, [updateForm]);
+	const formFieldUpdate = (field, value) => {
+		const obj = field;
+		const val = value;
+		updateFormData((prevState) => ({
+			...prevState,
+			[obj]: val,
+		}));
 	};
 
 	return (
@@ -35,8 +37,8 @@ const AddGuest = (props) => {
 			<DialogTitle>Add Guest</DialogTitle>
 			<DialogContent>
 				<AddForm
-					key={formData}
 					handle_formFieldUpdate={formFieldUpdate}
+					formData={formData}
 					addInd={formData.addressInd}
 				/>
 			</DialogContent>
@@ -47,6 +49,6 @@ const AddGuest = (props) => {
 			</DialogActions>
 		</Dialog>
 	);
-};
+}
 
 export default AddGuest;
