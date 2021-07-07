@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 import {
 	Dialog,
 	DialogActions,
@@ -25,7 +25,9 @@ const AddGuest = (props) => {
 
 		updateForm[field] = value;
 		console.log(updateForm[field]);
-		updateFormData(updateForm);
+		// useEffect(() => {
+		// 	updateFormData(updateForm);
+		// }, [updateForm]);
 	};
 
 	return (
