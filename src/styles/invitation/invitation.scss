@@ -9,5 +9,10 @@
 .add_form {
 	display: grid;
 	grid-template-columns: 300px 300px 150px;
+	align-items: baseline;
 	row-gap: 0.5rem;
+}
+
+#address-2::after {
+	content: "";
 }

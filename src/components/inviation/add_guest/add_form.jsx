@@ -9,7 +9,7 @@ function AddForm(props) {
 				required
 				id="address-1"
 				label="Required"
-				colSpan={3}
+				style={{gridColumn: "1 / 4"}}
 				placeholder="Address 1"
 				onBlur={(event) =>
 					props.handle_formFieldUpdate("address1", event.target.value)
@@ -21,11 +21,37 @@ function AddForm(props) {
 			<TextField
 				required
 				id="address-2"
-				colSpan={3}
+				style={{gridColumn: "1 / 4"}}
 				label=""
 				placeholder="Address 2"
 				onBlur={(event) =>
 					props.handle_formFieldUpdate("address2", event.target.value)
+				}
+				InputLabelProps={{
+					shrink: true,
+				}}
+			/>
+			<TextField
+				required
+				id="city"
+				label="Required"
+				colSpan={3}
+				placeholder="City"
+				onBlur={(event) =>
+					props.handle_formFieldUpdate("city", event.target.value)
+				}
+				InputLabelProps={{
+					shrink: true,
+				}}
+			/>
+			<TextField
+				required
+				id="st"
+				label="Required"
+				colSpan={3}
+				placeholder="State"
+				onBlur={(event) =>
+					props.handle_formFieldUpdate("st", event.target.value)
 				}
 				InputLabelProps={{
 					shrink: true,
