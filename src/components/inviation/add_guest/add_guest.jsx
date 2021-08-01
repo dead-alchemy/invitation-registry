@@ -13,23 +13,31 @@ import {
 import AddForm from "./add_form";
 
 function AddGuest(props) {
-	let [formData, updateFormData] = useState({
-		firstName: "",
-		lastName: "",
-		addressInd: false,
-		address1: "",
-		address2: "",
-		st: "",
-		zip: "",
-	});
+	let [guests, updateGuests] = useState([
+		{
+			firstName: "",
+			lastName: "",
+		},
+	]);
 
-	const formFieldUpdate = (field, value) => {
-		const obj = field;
-		const val = value;
-		updateFormData((prevState) => ({
-			...prevState,
-			[obj]: val,
-		}));
+	//let [addInfo, updateAddInfo] = useState(false);
+
+	// pushes a new guest into existence
+	const addGuest = () => {
+		let guests = [...guests];
+		guests.push({
+			firstName: "",
+			lastName: "",
+		});
+		updateGuests(guests);
+	};
+
+	// updated the appropriate values for guests.
+	const updateGuestInfo = (i, key, val) => {
+		let guests = [...guests];
+
+		guests[i][key] = val;
+		updateGuests(guests);
 	};
 
 	return (
@@ -37,9 +45,9 @@ function AddGuest(props) {
 			<DialogTitle>Add Guest</DialogTitle>
 			<DialogContent>
 				<AddForm
-					handle_formFieldUpdate={formFieldUpdate}
-					formData={formData}
-					addInd={formData.addressInd}
+					guests={guests}
+					handle_addGuest={addGuest}
+					handle_updateGuestInfo={updateGuestInfo}
 				/>
 			</DialogContent>
 			<DialogActions>
