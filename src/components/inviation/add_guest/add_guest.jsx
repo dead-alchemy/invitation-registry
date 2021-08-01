@@ -24,37 +24,49 @@ function AddGuest(props) {
 
 	// pushes a new guest into existence
 	const addGuest = () => {
-		let guests = [...guests];
-		guests.push({
+		let guest = [...guests];
+		guest.push({
 			firstName: "",
 			lastName: "",
 		});
-		updateGuests(guests);
+		updateGuests(guest);
+	};
+
+	// removes a guest from existence
+	const removeGuest = (i) => {
+		let guest = [...guests];
+		guest.splice(i, 1);
+		updateGuests(guest);
 	};
 
 	// updated the appropriate values for guests.
 	const updateGuestInfo = (i, key, val) => {
-		let guests = [...guests];
+		let newGuests = [...guests];
 
-		guests[i][key] = val;
-		updateGuests(guests);
+		newGuests[i][key] = val;
+		updateGuests(newGuests);
 	};
 
 	return (
 		<Dialog open={props.active} maxWidth="md">
-			<DialogTitle>Add Guest</DialogTitle>
+			<DialogTitle>
+				Add Guest
+				<Button
+					className="closeButton"
+					variant="outlined"
+					onClick={() => props.closeDialog(0)}
+				>
+					X
+				</Button>
+			</DialogTitle>
 			<DialogContent>
 				<AddForm
 					guests={guests}
 					handle_addGuest={addGuest}
 					handle_updateGuestInfo={updateGuestInfo}
+					handle_removeGuest={removeGuest}
 				/>
 			</DialogContent>
-			<DialogActions>
-				<Button variant="outlined" onClick={() => props.closeDialog(0)}>
-					Close
-				</Button>
-			</DialogActions>
 		</Dialog>
 	);
 }

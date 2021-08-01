@@ -1,5 +1,9 @@
 @import "styles/colors.scss";
 
+.closeButton {
+	float: right;
+}
+
 .invitation-action-grid {
 	display: grid;
 	grid-template-columns: repeat(4, 1fr);
@@ -8,11 +12,8 @@
 
 .add_form {
 	display: grid;
-	grid-template-columns: 300px 300px 150px;
+	grid-template-columns: 300px 300px 200px;
 	align-items: baseline;
+	justify-items: center;
 	row-gap: 0.5rem;
-}
-
-#address-2::after {
-	content: "";
 }
